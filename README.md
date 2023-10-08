@@ -1,7 +1,5 @@
 # tcp_liburing
 
-# tcp_liburing
-
 cmake ..
 
 make
