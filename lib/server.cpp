@@ -86,13 +86,8 @@ void UringServer::start() {
                 message_callback(channel);
             }
         } else if (channel->type == WRITE) {
-            ::close(channel->fd);
-
-            if (connection_closed_callback != nullptr) {
-                connection_closed_callback(channel);
-            }
-
-            delete channel;
+            (channel->fd);
+            submit_read(channel);
 
         } else {
             cerr << "invalid channel type\n";
