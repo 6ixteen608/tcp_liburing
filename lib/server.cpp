@@ -125,7 +125,7 @@ void UringServer::submit_write(UringChannel *channel) {
     channel->type = WRITE;
     char accepted_msg[]="ACCEPTED\n";
     sleep(3);
-    io_uring_prep_write(sqe, channel->fd, &channel->buffer, channel->buffer_size, 0);
+    io_uring_prep_write(sqe, channel->fd, accepted_msg, sizeof(accepted_msg), 0);
     io_uring_sqe_set_data(sqe, channel);
     io_uring_submit(&_ring);
 }
